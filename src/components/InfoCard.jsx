@@ -1,5 +1,3 @@
-import '../App.css'
-
 const InfoCard = ({ title, children, className = '' }) => {
     return (
         <fieldset className={`bg-white border-2 border-primary-500 p-5 rounded-lg shadow-md ${className}`}>
