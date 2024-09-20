@@ -16,7 +16,7 @@ body::before {
     background-size: 300px 300px; /* Ajusta el tamaño del patrón */
     background-repeat: repeat;
     opacity: 0.25; /* Aplica el 15% de transparencia al fondo */
-    z-index: -1; /* Mantiene el fondo detrás del contenido */
+    z-index: -100; /* Mantiene el fondo detrás del contenido */
 }
 
 
