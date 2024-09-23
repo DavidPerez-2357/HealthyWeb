@@ -12,6 +12,17 @@ function App() {
     const [error, setError] = useState(null);
     const search = new URLSearchParams(window.location.search).get('search');
 
+    useEffect(() => {
+        // Change the title
+        document.title = "Healthy Web";
+
+        // Change the favicon
+        const link = document.querySelector("link[rel='icon']");
+        if (link) {
+            link.href = "broccoli.png";
+        }
+    }, []);
+
     const handleKeyDown = (event) => {
         console.log('Key pressed:', event.key);
         if (event.key === 'Enter') {
@@ -69,7 +80,7 @@ function App() {
 
   return (
     <>
-        <IndexHeader>¡JOIN THE GREEN REVOLUTION!</IndexHeader>
+        <IndexHeader>JOIN THE GREEN REVOLUTION!</IndexHeader>
 
         <div className='container mx-auto p-5 pb-16 mt-5'>
             <InfoCard title="Improve your health step by step">
