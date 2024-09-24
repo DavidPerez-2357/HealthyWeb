@@ -1,27 +1,19 @@
-import './App.css';
-import InfoCard from './components/InfoCard';
-import IndexHeader from './components/IndexHeader.jsx';
-import SectionTitle from "./components/SectionTitle.jsx";
-import RecipeCard from './components/RecipeCard';
-import {getRecipes} from "./services/getRecipes.js";
+import '../styles/App.css';
+import InfoCard from '../components/InfoCard.jsx';
+import IndexHeader from '../components/IndexHeader.jsx';
+import SectionTitle from "../components/SectionTitle.jsx";
+import RecipeCard from '../components/RecipeCard.jsx';
+import {getRecipes} from "../services/recipe_service.js";
+import Loading from "../components/Loading.jsx";
+import Error from "../components/Error.jsx";
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function App() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const search = new URLSearchParams(window.location.search).get('search');
-
-    useEffect(() => {
-        // Change the title
-        document.title = "Healthy Web";
-
-        // Change the favicon
-        const link = document.querySelector("link[rel='icon']");
-        if (link) {
-            link.href = "broccoli.png";
-        }
-    }, []);
 
     const handleKeyDown = (event) => {
         console.log('Key pressed:', event.key);
@@ -45,6 +37,7 @@ function App() {
         // Función asíncrona dentro de useEffect
         const fetchData = async () => {
             try {
+                console.log('Fetching data...');
                 const recipes = await getRecipes();  // Llamada a la función asíncrona
                 setData(recipes);  // Almacena los datos obtenidos en el estado
                 setLoading(false); // Marca que ha terminado la carga
@@ -71,11 +64,11 @@ function App() {
     }, []);
 
     if (loading) {
-        return <div>Cargando...</div>;
+        return <Loading/>;
     }
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return <Error message={error.message}/>;
     }
 
   return (
@@ -93,7 +86,7 @@ function App() {
                 simply and effectively!
             </InfoCard>
 
-            <section className='mt-16'>
+            <section className='mt-20'>
                 <div className='flex justify-between items-center'>
                     <SectionTitle>Discover healthy and delicious recipes</SectionTitle>
                     <input onKeyDown={handleKeyDown} defaultValue={search} type="text" id='searchInput' placeholder="Search for recipes" className="border-2 h-10 p-2 border-primary-500 rounded-lg"/>
@@ -102,7 +95,9 @@ function App() {
                 <div className={'gap-6 grid'} style={{gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'}}>
                     {data && data.length > 0 ? (
                         data.map((recipe) => (
-                            <RecipeCard key={recipe.id} recipe={recipe}/>
+                            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+                                <RecipeCard recipe={recipe}/>
+                            </Link>
                         ))
                     ) : (
                         <p>No recipes available.</p>
@@ -110,6 +105,8 @@ function App() {
                 </div>
             </section>
         </div>
+
+
     </>
   )
 }
