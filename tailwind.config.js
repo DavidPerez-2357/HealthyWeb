@@ -9,6 +9,7 @@ export default {
       colors: {
         'primary-500': '#2CCE4C',
         'primary-700': '#1C9D36',
+        'orange-500': '#ECA02D',
       },
       fontFamily: {
         sans: ['Lexend', 'sans-serif'],
