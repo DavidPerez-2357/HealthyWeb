@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {useParams} from "react-router-dom";
 import RecipeHeader from "../components/RecipeHeader.jsx";
-import {getInformationRecipe} from "../services/recipe_service.js";
+import {getInformationRecipe} from "../services/recipeService.js";
 import Loading from "../components/Loading.jsx";
 import Error from "../components/Error.jsx";
 

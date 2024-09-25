@@ -3,7 +3,7 @@ import InfoCard from '../components/InfoCard.jsx';
 import IndexHeader from '../components/IndexHeader.jsx';
 import SectionTitle from "../components/SectionTitle.jsx";
 import RecipeCard from '../components/RecipeCard.jsx';
-import {getRecipes} from "../services/recipe_service.js";
+import {getRecipes} from "../services/recipeService.js";
 import Loading from "../components/Loading.jsx";
 import Error from "../components/Error.jsx";
 import React, { useState, useEffect } from 'react';
