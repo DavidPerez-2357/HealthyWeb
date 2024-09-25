@@ -33,3 +33,10 @@ body::before {
     @apply text-5xl md:text-6xl;
     @apply align-middle text-center;
 }
+
+.main_content {
+    @apply container;
+    @apply mx-auto;
+    @apply p-5 pb-16;
+    @apply mt-5;
+}

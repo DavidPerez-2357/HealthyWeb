@@ -75,7 +75,7 @@ function App() {
     <>
         <IndexHeader>JOIN THE GREEN REVOLUTION!</IndexHeader>
 
-        <div className='container mx-auto p-5 pb-16 mt-5'>
+        <main className='main_content'>
             <InfoCard title="Improve your health step by step">
                 Taking the first step toward a healthier life can seem overwhelming, but it doesn't have to be.
                 In this section, we guide you through a gradual and manageable approach to incorporating healthy
@@ -104,7 +104,7 @@ function App() {
                     )}
                 </div>
             </section>
-        </div>
+        </main>
 
 
     </>
