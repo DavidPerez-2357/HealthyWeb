@@ -1,3 +1,5 @@
+import {formatIngredient, groupIngredientsByType} from "./ingredientService.js";
+
 const app_id = '4a4dbfb9';
 const app_key = '646d3a8f9b4166071e1e7bc2240f4f54';
 
@@ -29,7 +31,10 @@ export async function getInformationRecipe(id) {
         'app_key': app_key,
     });
 
-    return formatRecipe(data.recipe);
+    const recipe = formatRecipe(data.recipe);
+    recipe.ingredients = data.recipe.ingredients.map((ingredient) => formatIngredient(ingredient));
+    recipe.ingredients = groupIngredientsByType(recipe.ingredients);
+    return recipe;
 }
 
 function formatRecipe(recipe) {
@@ -40,7 +45,7 @@ function formatRecipe(recipe) {
         id: id,
         name: recipe.label,
         image: recipe.image,
-        ingredients: recipe.ingredientLines,
+        ingredients: recipe.ingredients,
         calories: recipe.calories,
         totalTime: recipe.totalTime,
         url: recipe.url,
