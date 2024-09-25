@@ -5,6 +5,8 @@ import RecipeHeader from "../components/RecipeHeader.jsx";
 import {getInformationRecipe} from "../services/recipeService.js";
 import Loading from "../components/Loading.jsx";
 import Error from "../components/Error.jsx";
+import IngredientTypeGroup from "../components/IngredientTypeGroup.jsx";
+import SectionTitle from "../components/SectionTitle.jsx";
 
 function Recipe () {
     const { id } = useParams();
@@ -17,8 +19,8 @@ function Recipe () {
         const fetchData = async () => {
             try {
                 console.log('Fetching data...');
-                const recipes = await getInformationRecipe(id);  // Llamada a la función asíncrona
-                setData(recipes);  // Almacena los datos obtenidos en el estado
+                const recipe = await getInformationRecipe(id);  // Llamada a la función asíncrona
+                setData(recipe);  // Almacena los datos obtenidos en el estado
                 setLoading(false); // Marca que ha terminado la carga
             } catch (err) {
                 setError(err); // En caso de error, lo almacenamos
@@ -37,9 +39,20 @@ function Recipe () {
         return <Error message={error.message}/>;
     }
 
+    console.log(data)
+
     return (
         <>
             <RecipeHeader>{data.name}</RecipeHeader>
+
+            <main className='main_content'>
+                <div className='md:w-1/2'>
+                    <SectionTitle>Ingredients</SectionTitle>
+                    {Object.entries(data.ingredients).map(([type, ingredients]) => (
+                        <IngredientTypeGroup key={type} type={type} ingredients={ingredients}/>
+                    ))}
+                </div>
+            </main>
         </>
     );
 }
