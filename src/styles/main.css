@@ -40,3 +40,9 @@ body::before {
     @apply p-5 pb-16;
     @apply mt-5;
 }
+
+@layer utilities {
+    .list-marker-black li::marker {
+        color: black;
+    }
+}
