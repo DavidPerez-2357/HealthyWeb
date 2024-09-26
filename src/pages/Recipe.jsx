@@ -60,6 +60,7 @@ function Recipe () {
 
                 <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
                     <SectionTitle>Calories per portion</SectionTitle>
+                    <br/>
                     <CaloriesMeter calories={caloriePerPortion}/>
                 </section>
 
