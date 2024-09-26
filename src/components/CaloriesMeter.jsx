@@ -2,23 +2,25 @@ import React from "react";
 
 const CaloriesMeter = ({ calories }) => {
     const levels = {
-        low: 400,
-        medium: 700,
-        high: 1000
+        low: 300,
+        medium: 600,
+        high: 900,
+        very_high: 1200,
     };
 
-    let percentage = (calories / levels.high) * 100;
+    let percentage = (calories / levels.very_high) * 100;
     const caloriesRounded = Math.round(calories);
 
-    if (calories > levels.high) {
+    if (calories > levels.very_high) {
         percentage = 100;
     }
 
     return (
-        <div className={'w-full max-w-[700px] h-5 pt-0 grid relative grid-cols-3 gap-2 '}>
+        <div className={'w-full max-w-[800px] h-5 pt-0 grid relative grid-cols-4 gap-2 '}>
             <div className='bg-green-500 rounded-l h-5'></div>
             <div className='bg-orange-500 orange h-5'></div>
-            <div className='bg-red-500 rounded-r h-5'></div>
+            <div className='bg-red-500 h-5'></div>
+            <div className='bg-gray-800 rounded-r h-5'></div>
 
             <div className='absolute w-1 h-7 translate -translate-y-1/2 top-1/2 bg-gray-700'
                  style={{left: `${percentage}%`}}></div>
@@ -30,8 +32,9 @@ const CaloriesMeter = ({ calories }) => {
             </div>
 
             <div className='text-gray-700 sm:flex hidden w-full justify-center'>Low</div>
-            <div className='text-gray-700 sm:flex hidden w-full justify-center'>Recommended</div>
+            <div className='text-gray-700 sm:flex hidden w-full justify-center'>Medium</div>
             <div className='text-gray-700 sm:flex hidden w-full justify-center'>High</div>
+            <div className='text-gray-700 sm:flex hidden w-full justify-center'>Very high</div>
         </div>
 
     );

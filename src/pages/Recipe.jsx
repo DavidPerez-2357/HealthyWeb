@@ -40,7 +40,7 @@ function Recipe () {
         return <Error message={error.message}/>;
     }
 
-    console.log(data)
+    const caloriePerPortion = Math.round(data.calories / data.portions);
 
     return (
         <>
@@ -59,8 +59,8 @@ function Recipe () {
                 </Link>
 
                 <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
-                    <SectionTitle>Calories</SectionTitle>
-                    <CaloriesMeter calories={data.calories}/>
+                    <SectionTitle>Calories per portion</SectionTitle>
+                    <CaloriesMeter calories={caloriePerPortion}/>
                 </section>
 
                 <section className='w-full  grid sm:gap-2 gap-6'>
