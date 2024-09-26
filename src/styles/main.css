@@ -54,8 +54,6 @@ body::before {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    /*border: 1px solid gray;*/
-    border-radius: 2px;
     background: #dddddd;
 }
 
