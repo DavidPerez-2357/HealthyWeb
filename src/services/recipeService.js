@@ -47,7 +47,7 @@ function formatRecipe(recipe) {
         image: recipe.image,
         ingredients: recipe.ingredients,
         calories: recipe.calories,
-        totalTime: recipe.totalTime,
+        portions: recipe.yield,
         url: recipe.url,
     };
 }
