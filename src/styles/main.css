@@ -46,3 +46,26 @@ body::before {
         color: black;
     }
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*border: 1px solid gray;*/
+    border-radius: 2px;
+    background: #dddddd;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #03881d;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #02bd25;
+}
