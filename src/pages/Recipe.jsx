@@ -7,6 +7,7 @@ import Loading from "../components/Loading.jsx";
 import Error from "../components/Error.jsx";
 import IngredientTypeGroup from "../components/IngredientTypeGroup.jsx";
 import SectionTitle from "../components/SectionTitle.jsx";
+import CaloriesMeter from "../components/CaloriesMeter.jsx";
 
 function Recipe () {
     const { id } = useParams();
@@ -57,15 +58,20 @@ function Recipe () {
                     </div>
                 </Link>
 
-                <div className='w-full p-5 grid sm:gap-2 gap-6'>
+                <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
+                    <SectionTitle>Calories</SectionTitle>
+                    <CaloriesMeter calories={data.calories}/>
+                </section>
+
+                <section className='w-full  grid sm:gap-2 gap-6'>
                     <SectionTitle>Ingredients</SectionTitle>
-                    <div className='sm:grid pl-8 flex flex-wrap gap-x-20 gap-y-6'
+                    <div className='sm:grid p-5 pt-0 pl-8 flex flex-wrap gap-x-20 gap-y-6'
                          style={{gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))'}}>
                         {Object.entries(data.ingredients).map(([type, ingredients]) => (
                             <IngredientTypeGroup key={type} type={type} ingredients={ingredients}/>
                         ))}
                     </div>
-                </div>
+                </section>
             </main>
         </>
     );
