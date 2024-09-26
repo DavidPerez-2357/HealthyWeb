@@ -92,23 +92,23 @@ function App() {
                     <input onKeyDown={handleKeyDown} defaultValue={search} type="text" id='searchInput' placeholder="Search for recipes" className="border-2 h-10 p-2 border-primary-500 rounded-lg"/>
                 </div>
 
-                <div className={'gap-6 grid'} style={{gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'}}>
-                    {data && data.length > 0 ? (
-                        data.map((recipe) => (
-                            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
-                                <RecipeCard recipe={recipe}/>
-                            </Link>
-                        ))
-                    ) : (
-                        <p>No recipes available.</p>
-                    )}
-                </div>
+                {data && data.length > 0 ? (
+                    <div className={'gap-6 grid'}
+                         style={{gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'}}>
+                        {data.map((recipe) => (
+                        <Link to={`/recipe/${recipe.id}?search=${search}`} key={recipe.id}>
+                            <RecipeCard recipe={recipe}/>
+                        </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <Error title='No recipes found' message='Try searching for another recipe' className={'max-h-max'}/>
+                )}
+
             </section>
         </main>
-
-
     </>
-  )
+    )
 }
 
 export default App
