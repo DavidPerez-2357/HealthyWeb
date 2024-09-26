@@ -19,7 +19,6 @@ function Recipe () {
         // Función asíncrona dentro de useEffect
         const fetchData = async () => {
             try {
-                console.log('Fetching data...');
                 const recipe = await getInformationRecipe(id);  // Llamada a la función asíncrona
                 setData(recipe);  // Almacena los datos obtenidos en el estado
                 setLoading(false); // Marca que ha terminado la carga

@@ -92,7 +92,6 @@ const IngredientTypeGroup = ({ type, ingredients }) => {
     }
 
     const typeColor = typeBorderColors[typeImage] || 'border-[#000000]';
-    console.log(typeColor);
 
     return (
         <div className={`mb-5 sm:pt-5 pt-24 flex flex-col justify-center sm:pl-28 min-h-28 w-full relative bg-white border-2 rounded-lg p-5 group ${typeColor} ${typeHoverBgColors[typeImage]} transition`}>
