@@ -59,7 +59,7 @@ function Recipe () {
 
                 <div className='w-full p-5 grid sm:gap-2 gap-6'>
                     <SectionTitle>Ingredients</SectionTitle>
-                    <div className='sm:grid flex flex-wrap gap-x-20 gap-y-6'
+                    <div className='sm:grid pl-8 flex flex-wrap gap-x-20 gap-y-6'
                          style={{gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))'}}>
                         {Object.entries(data.ingredients).map(([type, ingredients]) => (
                             <IngredientTypeGroup key={type} type={type} ingredients={ingredients}/>
