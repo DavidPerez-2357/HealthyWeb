@@ -4,7 +4,7 @@ const Loading = () => {
     return (
         <div className="flex justify-center items-center flex-col" style={{height: '100vh'}}>
             <img src={ broccoli_dancing } className="w-52" alt="Broccoli dancing" />
-            <h1 className="main_title text-primary-500">Cargando...</h1>
+            <h1 className="main_title text-primary-500">Loading...</h1>
         </div>
     );
 }
