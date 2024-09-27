@@ -14,7 +14,7 @@ function Recipe () {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const search = new URLSearchParams(window.location.search).get('search');
+    const search = new URLSearchParams(window.location.search).get('search') || '';
 
     useEffect(() => {
         // Función asíncrona dentro de useEffect

@@ -13,7 +13,7 @@ function App() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const search = new URLSearchParams(window.location.search).get('search');
+    const search = new URLSearchParams(window.location.search).get('search') || '';
 
     const handleKeyDown = (event) => {
         console.log('Key pressed:', event.key);
