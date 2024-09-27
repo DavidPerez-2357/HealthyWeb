@@ -1,6 +1,12 @@
 # HealthyWeb
 A web made for the design interfaces subject
 
+## Initialization
+First of all, you have to install Node.js. Next execute these comands in terminal:
+```bash
+npm install
+npm run dev
+``` 
 
 # React + Vite
 
