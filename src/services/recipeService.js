@@ -46,7 +46,7 @@ function formatRecipe(recipe) {
         name: recipe.label,
         image: recipe.image,
         ingredients: recipe.ingredients,
-        calories: recipe.calories,
+        calories: Math.round(recipe.calories),
         portions: recipe.yield,
         url: recipe.url,
     };

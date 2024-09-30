@@ -9,7 +9,6 @@ const CaloriesMeter = ({ calories }) => {
     };
 
     let percentage = (calories / levels.very_high) * 100;
-    const caloriesRounded = Math.round(calories);
 
     if (calories > levels.very_high) {
         percentage = 100;
@@ -28,7 +27,7 @@ const CaloriesMeter = ({ calories }) => {
             <div
                 className='absolute p-1 rounded text-white translate -translate-x-1/2 -translate-y-1/2 -top-5 bg-gray-700'
                 style={{left: `${percentage}%`}}>
-                {caloriesRounded}
+                {calories}
             </div>
 
             <div className='text-gray-700 sm:flex hidden w-full justify-center'>Low</div>
