@@ -58,6 +58,16 @@ function Recipe () {
                     </div>
                 </Link>
 
+                <section className={'mt-10 mb-2'}>
+                    <SectionTitle>General information</SectionTitle>
+                    <ul className={'list-disc list-inside text-gray-800 text-lg'}>
+                        <li><b>When to Eat:</b> {data.mealType}</li>
+                        <li><b>Total calories:</b> {data.calories} kcal</li>
+                        <li><b>Portions:</b> {data.portions}</li>
+                        <li><b>Dish type:</b> {data.dishType}</li>
+                    </ul>
+                </section>
+
                 <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
                     <SectionTitle>Calories per portion</SectionTitle>
                     <br/>

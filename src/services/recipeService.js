@@ -49,6 +49,8 @@ function formatRecipe(recipe) {
         calories: Math.round(recipe.calories),
         portions: recipe.yield,
         url: recipe.url,
+        mealType: recipe.mealType,
+        dishType: recipe.dishType.join(', '),
     };
 }
 
