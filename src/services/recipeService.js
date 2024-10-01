@@ -51,6 +51,7 @@ function formatRecipe(recipe) {
         url: recipe.url,
         mealType: recipe.mealType,
         dishType: recipe.dishType.join(', '),
+        cautions: recipe.cautions.join(', '),
     };
 }
 
