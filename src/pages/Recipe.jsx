@@ -89,7 +89,7 @@ function Recipe () {
                     </ul>
                 </section>
 
-            <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
+            <section className={'w-full flex flex-col mb-20 mt-14 justify-center'}>
                     <div className={'flex mb-6 gap-x-10 gap-y-2 items-start md:flex-row flex-col'}>
                         <SectionTitle className={'mb-0'}>{caloriesMeterTitle()}</SectionTitle>
                         <button onClick={() => setCaloriesType(alternateCaloriesMeterType())}
