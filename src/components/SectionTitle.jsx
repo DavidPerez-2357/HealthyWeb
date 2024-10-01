@@ -1,7 +1,7 @@
-const SectionTitle = ({ children, size = 30}) => {
+const SectionTitle = ({ children, size = 30, className='mb-5'}) => {
 
     return (
-        <h2 className='font-bold text-gray-700 mb-5' style={{fontSize: `${size}px`}}>{children}</h2>
+        <h2 className={`font-bold text-gray-700 ${className}`} style={{fontSize: `${size}px`}}>{children}</h2>
     );
 }
 

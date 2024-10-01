@@ -58,8 +58,8 @@ function Recipe () {
                     </div>
                 </Link>
 
-                <section className={'mt-10 mb-2'}>
-                    <SectionTitle>General information</SectionTitle>
+                <section className={'mt-10'}>
+                    <SectionTitle className={'mb-2'}>General information</SectionTitle>
                     <ul className={'list-disc list-inside text-gray-800 text-lg'}>
                         <li><b>When to Eat:</b> {data.mealType}</li>
                         <li><b>Total calories:</b> {data.calories} kcal</li>
@@ -74,7 +74,7 @@ function Recipe () {
                     <CaloriesMeter calories={caloriePerPortion}/>
                 </section>
 
-                <section className='w-full  grid sm:gap-2 gap-6'>
+                <section className='w-full grid sm:gap-2 gap-6'>
                     <SectionTitle>Ingredients</SectionTitle>
                     <div className='sm:grid p-5 pt-0 pl-8 flex flex-wrap gap-x-20 gap-y-6'
                          style={{gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))'}}>
