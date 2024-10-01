@@ -9,12 +9,31 @@ import IngredientTypeGroup from "../components/IngredientTypeGroup.jsx";
 import SectionTitle from "../components/SectionTitle.jsx";
 import CaloriesMeter from "../components/CaloriesMeter.jsx";
 
+
 function Recipe () {
     const { id } = useParams();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [caloriesType, setCaloriesType] = useState('portion');  // 'portion' or 'total'
     const search = new URLSearchParams(window.location.search).get('search') || '';
+
+    // Alternate calorie type to show in the CaloriesMeter component
+    const alternateCaloriesMeterType = () => {
+        if (caloriesType === 'total') {
+            return 'portion';
+        } else {
+            return 'total';
+        }
+    }
+
+    const caloriesMeterTitle = () => {
+        if (caloriesType === 'total') {
+            return 'Total calories';
+        } else {
+            return 'Calories per portion';
+        }
+    }
 
     useEffect(() => {
         // Función asíncrona dentro de useEffect
@@ -60,21 +79,29 @@ function Recipe () {
 
                 <section className={'mt-10'}>
                     <SectionTitle className={'mb-2'}>General information</SectionTitle>
-                    <ul className={'list-disc list-inside text-gray-800 text-lg'}>
+
+                    <ul className={'list-disc list-inside text-gray-900 space-y-1 text-lg'}>
                         <li><b>When to Eat:</b> {data.mealType}</li>
                         <li><b>Total calories:</b> {data.calories} kcal</li>
                         <li><b>Portions:</b> {data.portions}</li>
                         <li><b>Dish type:</b> {data.dishType}</li>
+                        {data.cautions && <li><b>Cautions:</b> {data.cautions}</li>}
                     </ul>
                 </section>
 
-                <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
-                    <SectionTitle>Calories per portion</SectionTitle>
+            <section className={'w-full flex flex-col mb-20 mt-10 justify-center'}>
+                    <div className={'flex mb-6 gap-x-10 gap-y-2 items-start md:flex-row flex-col'}>
+                        <SectionTitle className={'mb-0'}>{caloriesMeterTitle()}</SectionTitle>
+                        <button onClick={() => setCaloriesType(alternateCaloriesMeterType())}
+                            className={'bg-green-200 mt-1 hover:bg-green-300 text-green-700 font-bold py-2 px-4 rounded inline-flex items-center gap-2'}>
+                            Change to {alternateCaloriesMeterType()} calories
+                        </button>
+                    </div>
                     <br/>
-                    <CaloriesMeter calories={caloriePerPortion}/>
-                </section>
+                    <CaloriesMeter calories={caloriesType === 'portion' ? caloriePerPortion : data.calories} type={caloriesType}/>
+            </section>
 
-                <section className='w-full grid sm:gap-2 gap-6'>
+            <section className='w-full grid sm:gap-2 gap-6'>
                     <SectionTitle>Ingredients</SectionTitle>
                     <div className='sm:grid p-5 pt-0 pl-8 flex flex-wrap gap-x-20 gap-y-6'
                          style={{gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))'}}>
